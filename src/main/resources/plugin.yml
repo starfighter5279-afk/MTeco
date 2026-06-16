@@ -1,0 +1,53 @@
+name: MTeco
+main: com.mteco.MTeco
+version: 1.0
+api-version: '1.21'
+soft-depend: [Vault, MTNations, BlueMap, floodgate, Essentials]
+permissions:
+  mteco.admin:
+    description: Access admin character commands
+    default: op
+  mteco.reload:
+    description: Reload MTeco configuration
+    default: op
+  MTNations.admin:
+    description: Access nation admin commands
+    default: op
+commands:
+  mteco:
+    description: MTeco admin commands
+    usage: /mteco reload
+    permission: mteco.reload
+  mtc:
+    description: Character management
+    usage: /mtc [create|bal|admin]
+    aliases: [character, char]
+  mtid:
+    description: View character ID cards
+    usage: /mtid [view <player>]
+    aliases: [id]
+  mtn:
+    description: Nation management
+    usage: /mtn [subcommand]
+    aliases: [nation]
+  mtr:
+    description: Region management
+    usage: /mtr [claim|auto]
+    aliases: [region]
+  mtb:
+    description: Business management
+    usage: /mtb [view]
+    aliases: [business, biz]
+  mts:
+    description: Shop management
+    usage: /mts [online|top]
+    aliases: [shop, shops]
+  laws:
+    description: View your nation's law books
+    usage: /laws view
+  sethome:
+    description: Set your home waypoint
+    usage: /sethome
+  home:
+    description: Teleport to your home waypoint
+    usage: /home

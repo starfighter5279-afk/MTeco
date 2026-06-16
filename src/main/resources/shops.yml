@@ -1,0 +1,23 @@
+# ============================================================
+#              MTeco — Shops Configuration
+# ============================================================
+# Player-run shop system. Shops are sign-based and support
+# sale history tracking, monthly profit reports, and optional
+# online (remote) purchasing.
+#
+# Use /mteco reload to apply changes without restarting.
+# ============================================================
+
+# Master toggle — set to false to disable the shop system entirely
+enabled: true
+
+# Allow players to browse and buy from shops remotely (online shop GUI)
+# If false, players must visit the physical shop sign to purchase
+online-shops: true
+
+# Days of sale history to keep per shop
+# Older entries are automatically pruned on reload
+sale-history-days: 60
+
+# Days to look back when calculating the monthly profit display
+monthly-profit-days: 30

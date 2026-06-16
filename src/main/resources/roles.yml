@@ -1,0 +1,102 @@
+# ===========================================
+#        Roles Configuration
+# ===========================================
+# Controls elite roles, custom government,
+# role modes, and permission availability.
+# ===========================================
+
+# Master toggle — set to false to disable all elite roles entirely.
+# When disabled, presidents can manage everything without assigning elites.
+enabled: true
+
+# ────────────────────────────
+#   Custom Government
+# ────────────────────────────
+# When enabled, replaces hardcoded President/VP/Treasurer/Security Head
+# with fully custom roles per-nation. Each custom role has selectable
+# permissions, a role mode, and its own member list.
+custom-government:
+  enabled: false
+  max-custom-roles: 10
+  # Allow non-op players to manage custom role creation and permissions for their nation
+  player-role-management: false
+
+# ────────────────────────────
+#   Role Modes
+# ────────────────────────────
+# Toggle which role modes are available when creating custom roles.
+# Leader — supreme leader with all permissions; actions go to council vote.
+# Council — votes on leader actions; if no leader, votes on each other's actions.
+# Employee — standard role; permissions apply directly with no voting.
+role-modes:
+  leader: true
+  council: true
+  employee: true
+
+# ────────────────────────────
+#   Custom Role Permissions
+# ────────────────────────────
+# Toggle which permissions are available for custom roles.
+# Disabled permissions will not appear in the permissions editor.
+custom-permissions:
+  # Government
+  manage-members: true
+  invite-members: true
+  kick-members: true
+  manage-roles: true
+  manage-announcements: true
+  # Territory
+  manage-regions: true
+  manage-properties: true
+  manage-conservation: true
+  # Economy
+  manage-treasury: true
+  view-treasury: true
+  manage-tax: true
+  manage-minters: true
+  use-minters: true
+  # Security
+  manage-enforcers: true
+  manage-laws: true
+  manage-crime: true
+  manage-jails: true
+  manage-war: true
+  # Diplomacy
+  manage-contracts: true
+
+# ────────────────────────────
+#   Council Vote Settings
+# ────────────────────────────
+council-votes:
+  # Seconds before a vote expires (non-voters count as pass)
+  expiry-seconds: 300
+  # Minimum ratio of pass votes needed (0.0 to 1.0)
+  # Non-voters count as pass when the vote expires
+  pass-threshold: 0.5
+
+# ────────────────────────────
+#   Legacy Elite Roles
+# ────────────────────────────
+# These roles are only active when custom-government is disabled.
+
+# ---- Treasurer ----
+treasurer:
+  enabled: true
+  manage:
+    treasury: true
+    property-approvals: true
+
+# ---- Vice President ----
+vice-president:
+  enabled: true
+  manage:
+    regions: true
+    war: true
+    treasury-view: true
+    announcements: true
+
+# ---- National Security Head ----
+security-head:
+  enabled: true
+  manage:
+    wars: true

@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.mtbase'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    maven { url 'https://jitpack.io' }
+    maven { url 'https://repo.bluecolored.de/releases' }
+    maven { url 'https://repo.opencollab.dev/main/' }
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:26.1.2.build.69-stable'
+    compileOnly 'com.github.MilkBowl:VaultAPI:1.7'
+    compileOnly 'de.bluecolored.bluemap:BlueMapAPI:2.7.2'
+    compileOnly 'org.geysermc.floodgate:api:2.2.2-SNAPSHOT'
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    implementation 'net.dv8tion:JDA:5.2.2'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.17.2'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}

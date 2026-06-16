@@ -1,0 +1,18 @@
+# ============================================================
+#              MTeco — Business Configuration
+# ============================================================
+# Nation-based business system. Requires nations to be enabled.
+# Businesses can hire employees, set payroll, manage stockrooms,
+# and operate shops under a nation.
+#
+# Use /mteco reload to apply changes without restarting.
+# ============================================================
+
+# Master toggle — set to true to enable the business system
+# Requires nations (nations.yml → enabled: true) to function
+enabled: false
+
+# Minutes between automatic payroll runs
+# Default: 10080 (7 days)
+# The server pays all employees from their business treasury on this interval
+payroll-interval-minutes: 10080

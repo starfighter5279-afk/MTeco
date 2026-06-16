@@ -1,0 +1,112 @@
+# ============================================================
+#              MTeco — Nations Configuration
+# ============================================================
+# Everything related to nations, regions, taxes, war, minters,
+# enforcers, laws, crime, and the border visualizer.
+#
+# Use /mteco reload to apply changes without restarting.
+# ============================================================
+
+# Master toggle — set to false to disable the entire nations system
+enabled: true
+
+# Allow any player to create a nation (not just admins)
+player-creation: false
+
+# ────────────────────────────
+#   Regions
+# ────────────────────────────
+regions:
+  # Maximum chunks a single region can claim
+  max-chunks: 500
+
+# ────────────────────────────
+#   Tax System
+# ────────────────────────────
+tax:
+  # Minutes between automatic tax collection cycles
+  collection-interval-minutes: 60
+
+  # Balance thresholds for tax brackets (inclusive upper bounds)
+  # Citizens with balance ≤ lower-class-max pay the lower rate,
+  # ≤ middle-class-max pay the middle rate, above pay upper rate.
+  # Actual rates are set per-nation by the president in-game.
+  brackets:
+    lower-class-max: 100000
+    middle-class-max: 200000
+
+# ────────────────────────────
+#   War
+# ────────────────────────────
+war:
+  # Cost to declare war on another nation (deducted from the aggressor's balance)
+  cost: 10000.0
+
+  # Maximum regions that can participate as attackers in a single war
+  max-attacking-regions: 5
+
+# ────────────────────────────
+#   Property
+# ────────────────────────────
+property:
+  # Allow property owners to customize per-property permissions
+  # (same-region / same-nation / foreign access levels)
+  custom-permissions: true
+
+# ────────────────────────────
+#   Minters (Gold Processing)
+# ────────────────────────────
+minters:
+  # Set to false to disable minter stations entirely
+  enabled: true
+
+  # Seconds to process one gold bar
+  bar-processing-seconds: 60
+
+  # Seconds to process one gold nugget
+  nugget-processing-seconds: 15
+
+  # Amount deposited to the nation vault per gold bar processed
+  bar-vault-amount: 100
+
+  # Amount deposited to the nation vault per gold nugget processed
+  nugget-vault-amount: 10
+
+# ────────────────────────────
+#   Enforcers
+# ────────────────────────────
+enforcers:
+  # Set to false to disable the enforcer appointment system
+  enabled: true
+
+# ────────────────────────────
+#   Laws
+# ────────────────────────────
+laws:
+  # Set to false to disable law books and legislation
+  enabled: true
+
+# ────────────────────────────
+#   Crime & Jail
+# ────────────────────────────
+crime:
+  # Set to false to disable convictions, criminal records, and jails
+  enabled: true
+
+# ────────────────────────────
+#   Border Visualizer
+# ────────────────────────────
+border-visualizer:
+  # Ticks between border particle updates (40 = 2 seconds)
+  tick-rate: 40
+
+  # Chunk radius around player to display region borders
+  view-radius-chunks: 5
+
+# 
+#   Mob Permissions
+# 
+mob-permissions:
+  # Allow area owners to control which hostile mobs can spawn
+  # in their properties and regions via the permissions GUI.
+  enabled: false
