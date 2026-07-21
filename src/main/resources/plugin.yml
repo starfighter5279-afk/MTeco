@@ -1,47 +1,50 @@
-name: MTeco
-main: com.mteco.MTeco
+name: DirtEconomy
+main: com.dirt.DirtEconomy
 version: 1.0
+author: HimnerdMC
 api-version: '1.21'
-soft-depend: [Vault, MTNations, BlueMap, floodgate, Essentials]
+folia-supported: true
+soft-depend: [Vault, DirtNations, BlueMap, floodgate, Essentials]
 permissions:
-  mteco.admin:
+  dirt.admin:
     description: Access admin character commands
     default: op
-  mteco.reload:
-    description: Reload MTeco configuration
+  dirt.reload:
+    description: Reload DirtEconomy configuration
     default: op
-  MTNations.admin:
+  DirtNations.admin:
     description: Access nation admin commands
     default: op
 commands:
-  mteco:
-    description: MTeco admin commands
-    usage: /mteco reload
-    permission: mteco.reload
-  mtc:
+  d:
+    description: DirtEconomy admin commands
+    usage: /d reload
+    permission: dirt.reload
+    aliases: [dirt]
+  dc:
     description: Character management
-    usage: /mtc [create|bal|admin]
-    aliases: [character, char]
-  mtid:
+    usage: /dc [create|bal|admin]
+    aliases: [dirtc, character, char]
+  did:
     description: View character ID cards
-    usage: /mtid [view <player>]
-    aliases: [id]
-  mtn:
+    usage: /did [view <player>]
+    aliases: [dirtid, id]
+  dn:
     description: Nation management
-    usage: /mtn [subcommand]
-    aliases: [nation]
-  mtr:
+    usage: /dn [subcommand]
+    aliases: [dirtn, nation]
+  dr:
     description: Region management
-    usage: /mtr [claim|auto]
-    aliases: [region]
-  mtb:
+    usage: /dr [claim|auto]
+    aliases: [dirtr, region]
+  db:
     description: Business management
-    usage: /mtb [view]
-    aliases: [business, biz]
-  mts:
+    usage: /db [view]
+    aliases: [dirtb, business, biz]
+  ds:
     description: Shop management
-    usage: /mts [online|top]
-    aliases: [shop, shops]
+    usage: /ds [online|top]
+    aliases: [dirts, shop, shops]
   laws:
     description: View your nation's law books
     usage: /laws view
@@ -51,3 +54,14 @@ commands:
   home:
     description: Teleport to your home waypoint
     usage: /home
+  gps:
+    description: GPS navigation system
+    usage: /gps <location> [details]
+    aliases: [navigate]
+  setgps:
+    description: Create a GPS location
+    usage: /setgps <name> | /setgps business <business>
+  give:
+    description: Admin give command
+    usage: /give <phone|life_token> <player> [amount]
+    permission: dirt.admin

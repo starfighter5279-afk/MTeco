@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'com.mtbase'
+group = 'com.dirt'
 version = '1.0'
 
 repositories {
@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'io.papermc.paper:paper-api:26.1.2.build.69-stable'
+    compileOnly 'org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT'
     compileOnly 'com.github.MilkBowl:VaultAPI:1.7'
     compileOnly 'de.bluecolored.bluemap:BlueMapAPI:2.7.2'
     compileOnly 'org.geysermc.floodgate:api:2.2.2-SNAPSHOT'

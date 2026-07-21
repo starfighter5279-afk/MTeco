@@ -1,11 +1,11 @@
 # ============================================================
-#              MTeco — Shops Configuration
+#            DirtEconomy — Shops Configuration
 # ============================================================
 # Player-run shop system. Shops are sign-based and support
 # sale history tracking, monthly profit reports, and optional
 # online (remote) purchasing.
 #
-# Use /mteco reload to apply changes without restarting.
+# Use /dirt reload to apply changes without restarting.
 # ============================================================
 
 # Master toggle — set to false to disable the shop system entirely

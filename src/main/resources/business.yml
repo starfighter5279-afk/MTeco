@@ -1,11 +1,11 @@
 # ============================================================
-#              MTeco — Business Configuration
+#            DirtEconomy — Business Configuration
 # ============================================================
 # Nation-based business system. Requires nations to be enabled.
 # Businesses can hire employees, set payroll, manage stockrooms,
 # and operate shops under a nation.
 #
-# Use /mteco reload to apply changes without restarting.
+# Use /dirt reload to apply changes without restarting.
 # ============================================================
 
 # Master toggle — set to true to enable the business system

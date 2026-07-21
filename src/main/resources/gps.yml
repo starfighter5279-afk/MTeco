@@ -1,0 +1,27 @@
+# ============================================================
+#                DirtEconomy — GPS Configuration
+# ============================================================
+# Configure the GPS navigation system.
+# Use /dirt reload to apply changes.
+# ============================================================
+
+# Enable or disable the GPS system entirely
+enabled: true
+
+# How often (in ticks) particle trail updates are shown (20 ticks = 1 second)
+particle-interval-ticks: 10
+
+# Maximum distance (in blocks) to render the particle trail ahead of the player
+particle-distance-blocks: 30
+
+# How close (in blocks) the player needs to be to trigger "arrived" message
+arrival-radius: 3.0
+
+# Maximum number of personal GPS locations per player
+max-personal-locations: 20
+
+# Maximum total global GPS locations on the server
+max-global-locations: 100
+
+# Allow businesses to create GPS locations
+business-locations: true

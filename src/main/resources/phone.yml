@@ -1,0 +1,41 @@
+# ============================================================
+#                DirtEconomy — Phone Configuration
+# ============================================================
+# Configure the in-game phone system.
+# Use /dirt reload to apply changes.
+# ============================================================
+
+# Enable or disable the phone system entirely
+enabled: true
+
+# Maximum number of contacts per player
+max-contacts: 50
+
+# Maximum conversations per player
+max-conversations: 30
+
+# Maximum messages stored per conversation
+max-message-history: 200
+
+# ────────────────────────────
+#   App Toggles
+# ────────────────────────────
+# Enable or disable individual phone apps
+apps:
+  # Text messaging between players
+  texter: true
+
+  # Contact management
+  contacts: true
+
+  # Maps / GPS navigation integration
+  maps: true
+
+  # Online shop browsing
+  shopoholic: true
+
+  # Character management shortcut
+  liferize: true
+
+  # App store / discovery
+  app-store: true

@@ -1,5 +1,5 @@
 # ============================================================
-#               MTeco — Discord Integration
+#             DirtEconomy — Discord Integration
 # ============================================================
 # Links character mailboxes to Discord so players receive
 # notifications as DMs. Players can also manage wars, families,
@@ -14,7 +14,7 @@
 #    Permissions: Send Messages, Use Slash Commands, Embed Links
 # 5) Open the generated URL to invite the bot to your server
 # 6) Set guild-id to your Discord server ID (for instant slash commands)
-# 7) In-game: /mteco link → player receives a 6-digit code
+# 7) In-game: /dirt link → player receives a 6-digit code
 # 8) On Discord: player sends the code in the link channel or DMs the bot
 # ============================================================
 
@@ -46,50 +46,9 @@ role-discord-permissions: false
 #   Discord Nickname Sync
 # ────────────────────────────
 
-# Set each linked player's Discord nickname to their Minetropolis
+# Set each linked player's Discord nickname to their Dirt
 # character name. Updated on link and every reload.
-discord-mtc-name: false
-
-# ────────────────────────────
-#   Proximity Voice Chat
-# ────────────────────────────
-
-# Proximity-based voice chat through Discord.
-# Players join the specified voice channel to enter the system.
-# Sub-channels are created automatically to group players within
-# range of each other. Players out of range are server-muted.
-#
-# Note: Discord API does not support per-user volume control from
-# bots. Proximity is handled by grouping nearby players into shared
-# sub-channels (hear each other) and muting isolated players.
-#
-# Tip: Ask players to enable Discord Streamer Mode
-# (Settings → Streamer Mode → Enable) to suppress join/leave/mute
-# notification sounds during automatic channel switches.
-proximity:
-  enabled: false
-
-  # The voice channel ID players join to enter proximity chat.
-  # This acts as the lobby — players are moved to sub-channels
-  # automatically when near other players.
-  voice-channel-id: ""
-
-  # Category where sub-channels are created.
-  # Leave empty to use the lobby channel's parent category.
-  sub-channel-category-id: ""
-
-  # Maximum distance (in blocks) for players to hear each other.
-  radius: 50
-
-  # How often to update proximity groups (in ticks, 20 = 1 second).
-  update-interval-ticks: 20
-
-  # ── Proximity Text Chat ──
-  # When enabled, regular chat messages only reach players
-  # within the configured radius.
-  text-chat:
-    enabled: false
-    radius: 50
+discord-dirtc-name: false
 
 # ────────────────────────────
 #   Auto-Link

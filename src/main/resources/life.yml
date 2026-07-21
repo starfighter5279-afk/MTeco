@@ -1,0 +1,44 @@
+# ═══════════════════════════════════════════════════════════
+#   ☠  D I R T L I F E  ─  L I F E  S Y S T E M  ☠
+# ═══════════════════════════════════════════════════════════
+#
+#   When the life system is enabled, every Minecraft death
+#   becomes a permanent character death. Players must choose
+#   to start a new life — or revive with a Life Token.
+#
+
+# Master toggle. When true, Minecraft death = character death.
+# Players see a custom death screen before starting a new life.
+life-system: false
+
+# Life Tokens are tied to the ACCOUNT, not the character.
+# They persist across deaths and allow players to revive.
+life-tokens: false
+
+# ═══════════════════════════════════════════════════════════
+#   ☠  D E A T H  S C R E E N
+# ═══════════════════════════════════════════════════════════
+
+death-screen:
+
+  # ── Button Titles (§ color codes supported) ──
+  continue-button-title: "§c§l☠ Continue To New Life"
+  revive-button-title: "§a§l✦ Use Life Token"
+  get-tokens-button-title: "§e§l★ Get Life Tokens"
+
+  # ── "Get Life Tokens" Button ──
+  # Only shown when a player has ZERO tokens and life-tokens is enabled.
+  get-tokens-button:
+    enabled: false
+
+    # What happens when clicked:
+    #   "link"         → Sends a URL in chat + Discord DM
+    #   "instructions" → Sends custom text to the player
+    #   "grant"        → Gives the player 1 free life token
+    action: "link"
+
+    # Used when action is "link"
+    link: "https://example.com/store"
+
+    # Used when action is "instructions"
+    instructions: "§ePurchase life tokens at our web store! Ask a staff member for help."

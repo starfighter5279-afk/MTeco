@@ -1,5 +1,5 @@
 # ============================================================
-#                  MTeco — Core Configuration
+#                DirtEconomy — Core Configuration
 # ============================================================
 # General plugin settings for characters, families, and combat.
 # Module configs are split into their own files:
@@ -9,7 +9,7 @@
 #   shops.yml     — Player shop system
 #   roles.yml     — Elite role permissions
 #
-# Use /mteco reload to apply changes without restarting.
+# Use /dirt reload to apply changes without restarting.
 # ============================================================
 
 # ────────────────────────────
@@ -45,10 +45,10 @@ family:
   marriage-eligibility-days: 30
 
 # ────────────────────────────
-#   MTHands (Physical Combat)
+#   DirtHands (Physical Combat)
 # ────────────────────────────
-mthands:
-  # Set to false to disable the MTHands combat listener
+dirthands:
+  # Set to false to disable the DirtHands combat listener
   enabled: true
 
 # ────────────────────────────

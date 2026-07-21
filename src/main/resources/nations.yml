@@ -1,10 +1,10 @@
 # ============================================================
-#              MTeco — Nations Configuration
+#            DirtEconomy — Nations Configuration
 # ============================================================
 # Everything related to nations, regions, taxes, war, minters,
 # enforcers, laws, crime, and the border visualizer.
 #
-# Use /mteco reload to apply changes without restarting.
+# Use /dirt reload to apply changes without restarting.
 # ============================================================
 
 # Master toggle — set to false to disable the entire nations system
