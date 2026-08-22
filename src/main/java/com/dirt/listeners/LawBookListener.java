@@ -19,13 +19,13 @@ public class LawBookListener implements Listener {
 
     public LawBookListener(DirtEconomy plugin) {
         this.plugin = plugin;
-        this.key = new NamespacedKey(plugin, "law_book");
+        this.key = NamespacedKey.fromString(plugin.getName().toLowerCase(java.util.Locale.ROOT) + ":law_book");
     }
 
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent event) {
         if (!(event.getPlayer() instanceof Player player)) return;
-        plugin.getServer().getScheduler().runTaskLater(plugin, () -> removeLawBooks(player), 1L);
+        plugin.getPlatformScheduler().runAtEntityLater(player, () -> removeLawBooks(player), 1L);
     }
 
     @EventHandler

@@ -171,8 +171,8 @@ public class IDViewGUI extends InventoryGUI {
         if (meta != null) {
             String middle = targetData.getMiddleName() != null && !targetData.getMiddleName().isEmpty()
                     ? " " + targetData.getMiddleName() : "";
-            meta.setDisplayName("§e" + targetData.getFirstName() + middle + " " + targetData.getLastName());
-            meta.setLore(Arrays.asList(
+            ItemUtil.setDisplayName(meta, "§e" + targetData.getFirstName() + middle + " " + targetData.getLastName());
+            ItemUtil.setLore(meta, Arrays.asList(
                     "§7Character ID Card",
                     "§8" + targetPlayerUUID.toString().substring(0, 8) + "..."
             ));

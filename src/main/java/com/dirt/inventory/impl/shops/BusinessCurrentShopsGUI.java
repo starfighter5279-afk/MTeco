@@ -54,8 +54,8 @@ public class BusinessCurrentShopsGUI extends InventoryGUI {
             ItemStack icon = template != null ? template.clone() : new ItemStack(org.bukkit.Material.CHEST);
             ItemMeta meta = icon.getItemMeta();
             if (meta != null) {
-                meta.setDisplayName("\u00a7a" + ShopManager.friendlyName(template != null ? template : icon));
-                meta.setLore(Arrays.asList(
+                ItemUtil.setDisplayName(meta, "\u00a7a" + ShopManager.friendlyName(template != null ? template : icon));
+                ItemUtil.setLore(meta, Arrays.asList(
                         "\u00a77Price: \u00a7e" + CurrencyUtil.symbol() + String.format("%.2f", shop.getPricePerUnit()),
                         "\u00a77Stock: \u00a7f" + stock,
                         "\u00a77Monthly Profit: \u00a7a" + CurrencyUtil.symbol() + String.format("%.2f", monthly),

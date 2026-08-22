@@ -97,7 +97,7 @@ public class ServerCharacterDetailGUI extends InventoryGUI {
                     ItemMeta meta = skull.getItemMeta();
                     if (meta != null) {
                         String fullName = buildFullName(finalData);
-                        meta.setDisplayName((finalData.isAlive() ? "§a" : "§c") + fullName);
+                        ItemUtil.setDisplayName(meta, (finalData.isAlive() ? "§a" : "§c") + fullName);
                         List<String> lore = new ArrayList<>();
                         lore.add("§7Owner: §f" + (ownerName != null ? ownerName : targetUuid.toString()));
                         lore.add("§7UUID: §8" + targetUuid);
@@ -118,7 +118,7 @@ public class ServerCharacterDetailGUI extends InventoryGUI {
                         lore.add("§7Previous Families: §f" + finalData.getPreviousFamilyIds().size());
                         lore.add("§7Pending Child Selection: §f" + finalData.isPendingChildSelection());
                         if (archived) lore.add("§8(Archived Character)");
-                        meta.setLore(lore);
+                        ItemUtil.setLore(meta, lore);
                         skull.setItemMeta(meta);
                     }
                     return skull;

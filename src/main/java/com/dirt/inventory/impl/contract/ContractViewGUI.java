@@ -158,24 +158,25 @@ public class ContractViewGUI extends InventoryGUI {
         BookMeta meta = (BookMeta) book.getItemMeta();
 
         String title = contract.getTitle().isEmpty() ? "Contract" : contract.getTitle();
-        meta.setTitle(title);
-        meta.setAuthor(contract.getCreatorCharacterName() != null ? contract.getCreatorCharacterName() : "Unknown");
+        meta.title(ItemUtil.legacyComponent(title));
+        String author = contract.getCreatorCharacterName() != null ? contract.getCreatorCharacterName() : "Unknown";
+        meta.author(ItemUtil.legacyComponent(author));
 
         String bodyText = contract.getBody().replace("|", "\n");
         List<String> pages = paginateText(bodyText);
 
         String headerPage = "\u00a70\u00a7l" + title + "\n\n"
-                + "\u00a78Author: \u00a70" + meta.getAuthor() + "\n"
+                + "\u00a78Author: \u00a70" + author + "\n"
                 + "\u00a78Date: \u00a70" + new SimpleDateFormat("MM/dd/yyyy").format(new Date(contract.getCreatedAt())) + "\n"
                 + "\u00a78Status: \u00a70" + contract.getStatus() + "\n";
         if (contract.getDurationMinecraftDays() > 0) {
             headerPage += "\u00a78Duration: \u00a70" + contract.getDurationMinecraftDays() + " MC days\n";
         }
         headerPage += "\n\u00a78--- Turn page to read ---";
-        meta.addPage(headerPage);
+        meta.addPages(ItemUtil.legacyComponent(headerPage));
 
         for (String page : pages) {
-            meta.addPage("\u00a70" + page);
+            meta.addPages(ItemUtil.legacyComponent("\u00a70" + page));
         }
 
         if (!contract.getSignatures().isEmpty()) {
@@ -187,7 +188,7 @@ public class ContractViewGUI extends InventoryGUI {
                 }
                 sigPage.append("\n\u00a78Code: ").append(sig.getCharacterCode()).append("\n\n");
             }
-            meta.addPage(sigPage.toString());
+            meta.addPages(ItemUtil.legacyComponent(sigPage.toString()));
         }
 
         book.setItemMeta(meta);

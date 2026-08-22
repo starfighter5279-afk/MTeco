@@ -6,6 +6,7 @@ import com.dirt.data.CharacterData;
 import com.dirt.data.ShopData;
 import com.dirt.managers.ShopManager;
 import com.dirt.util.CurrencyUtil;
+import com.dirt.util.ItemUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -74,10 +75,9 @@ public class DirtShopsListener implements Listener {
         if (hand == null || hand.getType() == Material.AIR) return;
 
         // Don't intercept golden shovel / hoe selection tools
-        if (hand.getItemMeta() != null && hand.getItemMeta().hasDisplayName()) {
-            String n = hand.getItemMeta().getDisplayName();
-            if ("\u00a76Selection Tool".equals(n) || "\u00a76Stockroom Selection Tool".equals(n)) return;
-        }
+        if (hand.getItemMeta() != null
+                && (ItemUtil.hasDisplayName(hand.getItemMeta(), "\u00a76Selection Tool")
+                || ItemUtil.hasDisplayName(hand.getItemMeta(), "\u00a76Stockroom Selection Tool"))) return;
 
         UUID businessId = pendingBusinessShopCreation.remove(player.getUniqueId());
         if (businessId != null) {

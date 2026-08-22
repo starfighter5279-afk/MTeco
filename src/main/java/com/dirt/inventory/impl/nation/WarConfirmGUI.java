@@ -73,8 +73,8 @@ public class WarConfirmGUI extends InventoryGUI {
                             .orElse(new ItemStack(org.bukkit.Material.STONE));
                     ItemMeta meta = item.getItemMeta();
                     if (meta != null) {
-                        meta.setDisplayName("§cDeclare War");
-                        meta.setLore(lore);
+                        ItemUtil.setDisplayName(meta, "§cDeclare War");
+                        ItemUtil.setLore(meta, lore);
                         item.setItemMeta(meta);
                     }
                     return item;

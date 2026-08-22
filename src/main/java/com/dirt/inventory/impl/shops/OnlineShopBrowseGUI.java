@@ -90,7 +90,7 @@ public class OnlineShopBrowseGUI extends InventoryGUI {
             ItemStack icon = entry.template.clone();
             ItemMeta meta = icon.getItemMeta();
             if (meta != null) {
-                meta.setLore(Arrays.asList(
+                ItemUtil.setLore(meta, Arrays.asList(
                         "\u00a77Price: \u00a7e" + CurrencyUtil.symbol() + String.format("%.2f", entry.pricePerUnit),
                         "\u00a77Available: \u00a7f" + entry.total,
                         "\u00a77Click to purchase."

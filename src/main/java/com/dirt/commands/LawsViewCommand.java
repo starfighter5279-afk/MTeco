@@ -4,6 +4,7 @@ import com.dirt.DirtEconomy;
 import com.dirt.data.CharacterData;
 import com.dirt.data.LawBookData;
 import com.dirt.data.NationData;
+import com.dirt.util.ItemUtil;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.command.Command;
@@ -53,20 +54,20 @@ public class LawsViewCommand implements CommandExecutor, TabCompleter {
                 ItemStack bookItem = new ItemStack(Material.WRITTEN_BOOK);
                 BookMeta meta = (BookMeta) bookItem.getItemMeta();
                 if (meta != null) {
-                    meta.setTitle(book.getTitle());
+                    meta.title(ItemUtil.legacyComponent(book.getTitle()));
                     CharacterData author = plugin.getCharacterManager().getCharacter(book.getAuthorUUID());
-                    meta.setAuthor(author != null ? author.getFirstName() + " " + author.getLastName() : "Unknown");
+                    meta.author(ItemUtil.legacyComponent(author != null ? author.getFirstName() + " " + author.getLastName() : "Unknown"));
                     for (String section : book.getSections()) {
                         String pageText = section;
                         while (pageText.length() > 256) {
-                            meta.addPage(pageText.substring(0, 256));
+                            meta.addPages(ItemUtil.legacyComponent(pageText.substring(0, 256)));
                             pageText = pageText.substring(256);
                         }
-                        if (!pageText.isEmpty()) meta.addPage(pageText);
+                        if (!pageText.isEmpty()) meta.addPages(ItemUtil.legacyComponent(pageText));
                     }
                     bookItem.setItemMeta(meta);
                 }
-                NamespacedKey key = new NamespacedKey(plugin, "law_book");
+                NamespacedKey key = NamespacedKey.fromString(plugin.getName().toLowerCase(java.util.Locale.ROOT) + ":law_book");
                 BookMeta tagged = (BookMeta) bookItem.getItemMeta();
                 if (tagged != null) {
                     tagged.getPersistentDataContainer().set(key, PersistentDataType.BYTE, (byte) 1);

@@ -4,6 +4,7 @@ import com.dirt.DirtEconomy;
 import com.dirt.data.BusinessData;
 import com.dirt.data.ShopData;
 import com.dirt.data.StockroomData;
+import com.dirt.util.ItemUtil;
 import com.dirt.util.CurrencyUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -416,8 +417,9 @@ public class ShopManager {
     }
 
     public static String friendlyName(ItemStack item) {
-        if (item.hasItemMeta() && item.getItemMeta().hasDisplayName()) {
-            return org.bukkit.ChatColor.stripColor(item.getItemMeta().getDisplayName());
+        String customName = ItemUtil.legacyString(item.getItemMeta().displayName());
+        if (customName != null) {
+            return org.bukkit.ChatColor.stripColor(customName);
         }
         String raw = item.getType().name().toLowerCase().replace('_', ' ');
         StringBuilder sb = new StringBuilder();

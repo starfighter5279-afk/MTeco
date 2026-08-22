@@ -75,7 +75,7 @@ public class BusinessStockroomDetailGUI extends InventoryGUI {
             ItemMeta meta = icon.getItemMeta();
             if (meta != null) {
                 List<String> lore = new ArrayList<>(Arrays.asList("\u00a77Total in stock: \u00a7e" + agg.total));
-                meta.setLore(lore);
+                ItemUtil.setLore(meta, lore);
                 icon.setItemMeta(meta);
             }
             final ItemStack finalIcon = icon;

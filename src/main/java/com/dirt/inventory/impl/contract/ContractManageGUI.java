@@ -9,6 +9,7 @@ import com.dirt.inventory.InventoryButton;
 import com.dirt.inventory.InventoryGUI;
 import com.dirt.util.CurrencyUtil;
 import com.dirt.util.ItemUtil;
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -162,8 +163,8 @@ public class ContractManageGUI extends InventoryGUI {
         if (meta == null) return;
 
         String titleText = contract.getTitle().isEmpty() ? "Contract" : contract.getTitle();
-        meta.setTitle(titleText);
-        meta.setAuthor(contract.getCreatorCharacterName());
+        meta.title(ItemUtil.legacyComponent(titleText));
+        meta.author(ItemUtil.legacyComponent(contract.getCreatorCharacterName()));
 
         String text = contract.getBody().replace("|", "\n");
         List<String> pages = paginateText(text);
@@ -182,9 +183,9 @@ public class ContractManageGUI extends InventoryGUI {
         }
 
         for (String page : pages) {
-            meta.addPage(page);
+            meta.addPages(ItemUtil.legacyComponent(page));
         }
-        meta.addPage(sigPage.toString());
+        meta.addPages(ItemUtil.legacyComponent(sigPage.toString()));
 
         book.setItemMeta(meta);
         player.openBook(book);
@@ -241,8 +242,8 @@ public class ContractManageGUI extends InventoryGUI {
         if (meta == null) return book;
 
         String titleText = contract.getTitle().isEmpty() ? "Contract Copy" : contract.getTitle();
-        meta.setTitle(titleText);
-        meta.setAuthor(contract.getCreatorCharacterName());
+        meta.title(ItemUtil.legacyComponent(titleText));
+        meta.author(ItemUtil.legacyComponent(contract.getCreatorCharacterName()));
 
         String text = contract.getBody().replace("|", "\n");
         List<String> pages = paginateText(text);
@@ -257,9 +258,9 @@ public class ContractManageGUI extends InventoryGUI {
         sigPage.append("\u00a77Created: \u00a70").append(new SimpleDateFormat("MM/dd/yyyy").format(new Date(contract.getCreatedAt())));
 
         for (String page : pages) {
-            meta.addPage(page);
+            meta.addPages(ItemUtil.legacyComponent(page));
         }
-        meta.addPage(sigPage.toString());
+        meta.addPages(ItemUtil.legacyComponent(sigPage.toString()));
 
         book.setItemMeta(meta);
         return book;

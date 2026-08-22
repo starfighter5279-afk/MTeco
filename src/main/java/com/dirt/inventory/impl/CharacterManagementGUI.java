@@ -58,11 +58,11 @@ public class CharacterManagementGUI extends InventoryGUI {
                     if (data != null) {
                         ItemMeta meta = skull.getItemMeta();
                         if (meta != null) {
-                            meta.setDisplayName("§e" + data.getFirstName() + " " + data.getMiddleName() + " " + data.getLastName());
+                            ItemUtil.setDisplayName(meta, "§e" + data.getFirstName() + " " + data.getMiddleName() + " " + data.getLastName());
                             String dateStr = new SimpleDateFormat("MM/dd/yyyy").format(new Date(data.getBirthDate()));
                             String owner = Bukkit.getOfflinePlayer(effectiveUuid).getName();
                             if (adminMode) {
-                                meta.setLore(Arrays.asList(
+                                ItemUtil.setLore(meta, Arrays.asList(
                                         "§7Owner: §f" + (owner != null ? owner : effectiveUuid.toString()),
                                         "§7Gender: §f" + data.getGender(),
                                         "§7Born: §f" + dateStr,
@@ -71,7 +71,7 @@ public class CharacterManagementGUI extends InventoryGUI {
                                         "§4§lADMIN VIEW"
                                 ));
                             } else {
-                                meta.setLore(Arrays.asList(
+                                ItemUtil.setLore(meta, Arrays.asList(
                                         "§7Gender: §f" + data.getGender(),
                                         "§7Born: §f" + dateStr
                                 ));

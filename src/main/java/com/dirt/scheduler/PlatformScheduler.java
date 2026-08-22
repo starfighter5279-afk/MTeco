@@ -30,6 +30,13 @@ public class PlatformScheduler {
         return wrap(plugin.getServer().getScheduler().runTask(plugin, task));
     }
 
+    public ScheduledTask runGlobalLater(Runnable task, long delayTicks) {
+        if (isFolia()) {
+            return wrap(foliaLib.getScheduler().runLater(task, delayTicks));
+        }
+        return wrap(plugin.getServer().getScheduler().runTaskLater(plugin, task, delayTicks));
+    }
+
     public ScheduledTask runGlobalTimer(Runnable task, long delayTicks, long periodTicks) {
         if (isFolia()) {
             return wrap(foliaLib.getScheduler().runTimer(task, delayTicks, periodTicks));

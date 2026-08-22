@@ -47,7 +47,7 @@ public class ContractViewBodyGUI extends InventoryGUI {
                             .orElse(new ItemStack(org.bukkit.Material.PAPER));
                     ItemMeta meta = book.getItemMeta();
                     if (meta != null) {
-                        meta.setDisplayName("\u00a7e\u00a7lPage " + (page + 1));
+                        ItemUtil.setDisplayName(meta, "\u00a7e\u00a7lPage " + (page + 1));
                         List<String> lore = new ArrayList<>();
                         if (pages.isEmpty()) {
                             lore.add("\u00a77(empty)");
@@ -56,7 +56,7 @@ public class ContractViewBodyGUI extends InventoryGUI {
                                 lore.add("\u00a7f" + ChatColor.translateAlternateColorCodes('&', line));
                             }
                         }
-                        meta.setLore(lore);
+                        ItemUtil.setLore(meta, lore);
                         book.setItemMeta(meta);
                     }
                     return book;

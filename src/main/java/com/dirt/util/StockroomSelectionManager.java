@@ -52,8 +52,8 @@ public class StockroomSelectionManager implements Listener {
         ItemStack hoe = new ItemStack(Material.GOLDEN_HOE);
         ItemMeta meta = hoe.getItemMeta();
         if (meta != null) {
-            meta.setDisplayName("\u00a76Stockroom Selection Tool");
-            meta.setLore(Arrays.asList("\u00a77Left-click corner 1, right-click corner 2."));
+            ItemUtil.setDisplayName(meta, "\u00a76Stockroom Selection Tool");
+            ItemUtil.setLore(meta, Arrays.asList("\u00a77Left-click corner 1, right-click corner 2."));
             hoe.setItemMeta(meta);
         }
         return hoe;
@@ -65,7 +65,7 @@ public class StockroomSelectionManager implements Listener {
             ItemStack item = contents[i];
             if (item != null && item.getType() == Material.GOLDEN_HOE
                     && item.getItemMeta() != null
-                    && "\u00a76Stockroom Selection Tool".equals(item.getItemMeta().getDisplayName())) {
+                    && ItemUtil.hasDisplayName(item.getItemMeta(), "\u00a76Stockroom Selection Tool")) {
                 player.getInventory().setItem(i, null);
                 break;
             }
@@ -81,7 +81,7 @@ public class StockroomSelectionManager implements Listener {
         ItemStack item = player.getInventory().getItemInMainHand();
         if (item.getType() != Material.GOLDEN_HOE) return;
         if (item.getItemMeta() == null
-                || !"\u00a76Stockroom Selection Tool".equals(item.getItemMeta().getDisplayName())) return;
+                || !ItemUtil.hasDisplayName(item.getItemMeta(), "\u00a76Stockroom Selection Tool")) return;
         event.setCancelled(true);
 
         Location loc = event.getClickedBlock().getLocation();

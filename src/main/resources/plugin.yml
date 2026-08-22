@@ -2,7 +2,7 @@ name: DirtEconomy
 main: com.dirt.DirtEconomy
 version: 1.0
 author: HimnerdMC
-api-version: '1.21'
+api-version: '26.2'
 folia-supported: true
 soft-depend: [Vault, DirtNations, BlueMap, floodgate, Essentials]
 permissions:

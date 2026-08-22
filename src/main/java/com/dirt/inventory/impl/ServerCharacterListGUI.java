@@ -98,10 +98,10 @@ public class ServerCharacterListGUI extends InventoryGUI {
                             String name = ((c.getFirstName() == null ? "" : c.getFirstName()) + " "
                                     + (c.getMiddleName() == null ? "" : c.getMiddleName()) + " "
                                     + (c.getLastName() == null ? "" : c.getLastName())).trim();
-                            meta.setDisplayName((c.isAlive() ? "§a" : "§c") + name);
+                            ItemUtil.setDisplayName(meta, (c.isAlive() ? "§a" : "§c") + name);
                             String born = c.getBirthDate() > 0 ? fmt.format(new Date(c.getBirthDate())) : "Unknown";
                             String owner = Bukkit.getOfflinePlayer(c.getPlayerUuid()).getName();
-                            meta.setLore(Arrays.asList(
+                            ItemUtil.setLore(meta, Arrays.asList(
                                     "§7Owner: §f" + (owner != null ? owner : c.getPlayerUuid().toString()),
                                     "§7Gender: §f" + (c.getGender() == null ? "Unknown" : c.getGender()),
                                     "§7Born: §f" + born,

@@ -240,8 +240,8 @@ public class ChunkSelectionManager implements Listener {
         ItemStack shovel = new ItemStack(Material.GOLDEN_SHOVEL);
         ItemMeta meta = shovel.getItemMeta();
         if (meta != null) {
-            meta.setDisplayName("\u00a76Selection Tool");
-            meta.setLore(Arrays.asList("\u00a77Left-click for corner 1, right-click for corner 2."));
+            ItemUtil.setDisplayName(meta, "\u00a76Selection Tool");
+            ItemUtil.setLore(meta, Arrays.asList("\u00a77Left-click for corner 1, right-click for corner 2."));
             shovel.setItemMeta(meta);
         }
         return shovel;
@@ -256,7 +256,7 @@ public class ChunkSelectionManager implements Listener {
                 && event.getAction() != Action.LEFT_CLICK_BLOCK && event.getAction() != Action.LEFT_CLICK_AIR) return;
         ItemStack item = player.getInventory().getItemInMainHand();
         if (item.getType() != Material.GOLDEN_SHOVEL) return;
-        if (item.getItemMeta() == null || !"\u00a76Selection Tool".equals(item.getItemMeta().getDisplayName())) return;
+        if (item.getItemMeta() == null || !ItemUtil.hasDisplayName(item.getItemMeta(), "\u00a76Selection Tool")) return;
         event.setCancelled(true);
 
         boolean isLeftClick = event.getAction() == Action.LEFT_CLICK_BLOCK || event.getAction() == Action.LEFT_CLICK_AIR;
@@ -844,7 +844,7 @@ public class ChunkSelectionManager implements Listener {
         for (int i = 0; i < contents.length; i++) {
             ItemStack item = contents[i];
             if (item != null && item.getType() == Material.GOLDEN_SHOVEL
-                    && item.getItemMeta() != null && "\u00a76Selection Tool".equals(item.getItemMeta().getDisplayName())) {
+                    && item.getItemMeta() != null && ItemUtil.hasDisplayName(item.getItemMeta(), "\u00a76Selection Tool")) {
                 player.getInventory().setItem(i, null);
                 break;
             }

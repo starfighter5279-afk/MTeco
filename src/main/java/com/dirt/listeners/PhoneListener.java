@@ -1,5 +1,6 @@
 package com.dirt.listeners;
 
+import com.cryptomorin.xseries.XEnchantment;
 import com.cryptomorin.xseries.XMaterial;
 import com.dirt.DirtEconomy;
 import com.dirt.data.PhoneData;
@@ -30,13 +31,13 @@ public class PhoneListener implements Listener {
 
     public PhoneListener(DirtEconomy plugin) {
         this.plugin = plugin;
-        this.phoneKey = new NamespacedKey(plugin, "phone");
+        this.phoneKey = NamespacedKey.fromString(plugin.getName().toLowerCase(java.util.Locale.ROOT) + ":phone");
         registerRecipe();
     }
 
     private void registerRecipe() {
         ItemStack phone = createPhoneItem();
-        NamespacedKey recipeKey = new NamespacedKey(plugin, "phone_recipe");
+        NamespacedKey recipeKey = NamespacedKey.fromString(plugin.getName().toLowerCase(java.util.Locale.ROOT) + ":phone_recipe");
         ShapedRecipe recipe = new ShapedRecipe(recipeKey, phone);
         recipe.shape("GG ", "CC ", "RB ");
         recipe.setIngredient('G', Material.GLASS_PANE);
@@ -49,9 +50,9 @@ public class PhoneListener implements Listener {
     public ItemStack createPhoneItem() {
         ItemStack item = XMaterial.matchXMaterial("NETHERITE_INGOT").map(XMaterial::parseItem).orElse(new ItemStack(Material.NETHERITE_INGOT));
         ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName("\u00a7b\u00a7lPhone");
-        meta.setLore(Arrays.asList("\u00a77Right-click to open your phone"));
-        meta.addEnchant(Enchantment.UNBREAKING, 1, true);
+        ItemUtil.setDisplayName(meta, "\u00a7b\u00a7lPhone");
+        ItemUtil.setLore(meta, Arrays.asList("\u00a77Right-click to open your phone"));
+        XEnchantment.matchXEnchantment("UNBREAKING").ifPresent(enchantment -> meta.addEnchant(enchantment.getEnchant(), 1, true));
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.getPersistentDataContainer().set(phoneKey, PersistentDataType.BYTE, (byte) 1);
         item.setItemMeta(meta);

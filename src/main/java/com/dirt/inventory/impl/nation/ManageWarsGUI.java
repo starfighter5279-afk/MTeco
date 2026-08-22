@@ -77,8 +77,8 @@ public class ManageWarsGUI extends InventoryGUI {
                         if (item == null) item = new ItemStack(org.bukkit.Material.STONE);
                         ItemMeta meta = item.getItemMeta();
                         if (meta != null) {
-                            meta.setDisplayName(isAttacker ? "§cWar vs " + otherName : "§eWar vs " + otherName);
-                            meta.setLore(lore);
+                            ItemUtil.setDisplayName(meta, isAttacker ? "§cWar vs " + otherName : "§eWar vs " + otherName);
+                            ItemUtil.setLore(meta, lore);
                             item.setItemMeta(meta);
                         }
                         return item;
